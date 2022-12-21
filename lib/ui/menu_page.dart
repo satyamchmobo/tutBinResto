@@ -34,8 +34,7 @@ class _MenuPageState extends State<MenuPage> {
                             if (state.popularItems.isNotEmpty)
                               PopularMenuOverview(
                                 popularItems: state.popularItems,
-                                popularItemIndexesMaps:
-                                    state.popularItemIndexesMaps,
+                        
                                 state: state,
                               ),
                             ...List.generate(

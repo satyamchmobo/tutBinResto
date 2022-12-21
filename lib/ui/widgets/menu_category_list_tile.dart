@@ -25,8 +25,7 @@ class MenuCategoryListTile extends StatelessWidget {
         InkWell(
           onTap: toggleExpansion,
           child: Container(
-            // height: 35,
-            // margin: const EdgeInsets.symmetric(vertical: 15),
+           
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
             decoration: BoxDecoration(
                 border: Border(

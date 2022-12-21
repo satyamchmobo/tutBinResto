@@ -12,13 +12,13 @@ class PopularMenuOverview extends StatelessWidget {
       {Key? key,
       required this.popularItems,
       this.catListIndex,
-      this.popularItemIndexesMaps,
+
       required this.state})
       : super(key: key);
 
   MenuPageViewModel state;
   int? catListIndex;
-  List<Map<String, int>>? popularItemIndexesMaps;
+
 
   List<ItemDetailsWithIndexes?> popularItems;
 

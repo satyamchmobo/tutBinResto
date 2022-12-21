@@ -12,9 +12,6 @@ class BestSeller extends StatelessWidget {
           color: Colors.red, borderRadius: BorderRadius.circular(48)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-
-        //Wrap your widget with the Transform widget
-
         child: text(
             color: AppColors.primaryWhite, text: 'Best Seller', fontSize: 8),
       ),

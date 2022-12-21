@@ -85,9 +85,7 @@ class AddCounterButton extends StatelessWidget {
                       child: const Icon(Icons.remove,
                           color: AppColors.primaryOrange, size: 20)),
                   Container(
-                    // height: 30,
-                    // width: 20,
-
+     
                     padding: const EdgeInsets.symmetric(
                       vertical: 7,
                       horizontal: 7,

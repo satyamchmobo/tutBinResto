@@ -17,7 +17,6 @@ class MenuPageViewModel extends BaseModel {
   double total = 0;
 
   void pickNonZeroTimesOrderedItems() {
-    int currentBigOrderCount = 0;
     for (int i = 0; i < menuLocal!.listOfItemCategoryMaps.length; i++) {
       Map<String, List<ItemDetails>> map = menuLocal!.listOfItemCategoryMaps[i];
 
@@ -27,24 +26,19 @@ class MenuPageViewModel extends BaseModel {
                 0) >
             0) {
           popularItems.add(ItemDetailsWithIndexes(
-                  catListIndex: i,
-                  itemListIndex: j,
-                  instock: menuLocal
-                      ?.listOfItemCategoryMaps[i].values.first[j].instock,
-                  isBestseller: menuLocal
-                      ?.listOfItemCategoryMaps[i].values.first[j].isBestseller,
-                  name:
-                      menuLocal?.listOfItemCategoryMaps[i].values.first[j].name,
-                  orderedCount: menuLocal
-                      ?.listOfItemCategoryMaps[i].values.first[j].orderedCount,
-                  price: menuLocal
-                      ?.listOfItemCategoryMaps[i].values.first[j].price)
-              // menuLocal?.listOfItemCategoryMaps[i].values.first[j]
-              );
+              catListIndex: i,
+              itemListIndex: j,
+              instock:
+                  menuLocal?.listOfItemCategoryMaps[i].values.first[j].instock,
+              isBestseller: menuLocal
+                  ?.listOfItemCategoryMaps[i].values.first[j].isBestseller,
+              name: menuLocal?.listOfItemCategoryMaps[i].values.first[j].name,
+              orderedCount: menuLocal
+                  ?.listOfItemCategoryMaps[i].values.first[j].orderedCount,
+              price:
+                  menuLocal?.listOfItemCategoryMaps[i].values.first[j].price));
 
           popularItemIndexesMaps.add({'catListIndex': i, 'itemListIndex': j});
-
-          // +listOfItemCategoryMaps[i].values.first[j]?.orderedCount;
         }
       }
 
@@ -57,14 +51,6 @@ class MenuPageViewModel extends BaseModel {
           popularItems.add(tempList[i]);
         }
       }
-      for (var element in popularItems) {
-        debugPrint(element!.orderedCount.toString());
-        debugPrint(element.name.toString());
-
-        debugPrint('=================');
-      }
-
-      debugPrint('end');
     }
   }
 
@@ -82,8 +68,6 @@ class MenuPageViewModel extends BaseModel {
       );
       menuLocal = databaseService.fetchUserProfile();
     } else {
-      debugPrint(
-          '${menuLocal?.listOfItemCategoryMaps.length.toString() ?? ''}--------->>>');
       pickNonZeroTimesOrderedItems();
     }
 
@@ -93,8 +77,6 @@ class MenuPageViewModel extends BaseModel {
           (entry) => {
             entry.key.toString(): [
               ...List.generate((entry.value).length, (index) {
-// entry.value[index]['instock']==true
-
                 return ItemDetails.fromJson(entry.value[index]);
               })
             ]
@@ -120,7 +102,6 @@ class MenuPageViewModel extends BaseModel {
                     0) +
                 (listOfItemCategoryMaps[i].values.first[j].orderedCount ?? 0);
         listOfItemCategoryMaps[i].values.first[j].orderedCount = 0;
-        // +listOfItemCategoryMaps[i].values.first[j]?.orderedCount;
       }
     }
 
@@ -133,26 +114,17 @@ class MenuPageViewModel extends BaseModel {
         .orderedCount
         .toString());
 
-    debugPrint('fdfd');
-    debugPrint('fdfd');
     Future.delayed(const Duration(seconds: 1)).then((value) {
       setState(ViewState.idle);
       showSnackBar(context, 'Order placed, Place a new order now !',
           duration: const Duration(seconds: 3));
     });
     total = 0;
-    // setState(ViewState.idle);
   }
 
   void incrementCountOfItem(int catListIndex, int itemListIndex) {
-    // int? tempVal = orderredCount;
-
     setState(ViewState.busy);
-    //  if (listOfItemCategoryMaps[catListIndex]
-    //             .values
-    //             .first[itemListIndex]
-    //             .instock ==
-    //         true &&
+
     if ((listOfItemCategoryMaps[catListIndex]
                 .values
                 .first[itemListIndex]
@@ -188,7 +160,6 @@ class MenuPageViewModel extends BaseModel {
   }
 
   void decrementCountOfItem(int catListIndex, int itemListIndex) {
-    // int? tempVal = orderredCount;
     setState(ViewState.busy);
     if ((listOfItemCategoryMaps[catListIndex]
                 .values
