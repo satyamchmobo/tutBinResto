@@ -54,7 +54,6 @@ class MenuPageViewModel extends BaseModel {
 
   void init() async {
     popularItems = [];
-    popularItemIndexesMaps = [];
     setState(ViewState.busy);
 
     menuLocal = databaseService.fetchUserProfile();
