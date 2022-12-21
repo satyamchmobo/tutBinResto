@@ -13,7 +13,6 @@ class MenuPageViewModel extends BaseModel {
   late List<Map<String, int>> listOfMapOfIndexesToUpdateLocal;
   late MenuLocal? menuLocal;
   List<ItemDetailsWithIndexes?> popularItems = [];
-  List<Map<String, int>> popularItemIndexesMaps = [];
   double total = 0;
 
   void pickNonZeroTimesOrderedItems() {
@@ -38,7 +37,6 @@ class MenuPageViewModel extends BaseModel {
               price:
                   menuLocal?.listOfItemCategoryMaps[i].values.first[j].price));
 
-          popularItemIndexesMaps.add({'catListIndex': i, 'itemListIndex': j});
         }
       }
 
